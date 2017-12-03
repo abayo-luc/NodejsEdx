@@ -1,14 +1,12 @@
 const cvs = require('csvtojson')
 const fs = require('fs')
-let myArray 
+let myArray = []
 cvs()
   // the following code convert cvs data to json formt
-  .fromFile('./customer-data.csv', function(err, result){
-    if (err) {
-      console.log("An error has occured")
-      console.log(err)
-    }
-    myArray = result
+  .fromFile('./customer-data.csv')
+  .on('json', (result)=>{
+    myArray.push(result)
+    // console.log(myArray)
   })
 
   // once the converting process is done and the data are avialable, the below code process to create json file containing the data
