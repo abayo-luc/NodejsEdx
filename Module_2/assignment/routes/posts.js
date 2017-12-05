@@ -4,7 +4,7 @@ module.exports = {
   	res.status(200).send(req.store.posts)
   },
   getPost(req, res) {
-  	console.log(req.store.posts[req.params.id])
+  	console.log(req.store.posts[req.params.id]['name'])
   	res.status(200).send(req.store.posts[req.params.id])
   },
   addPost(req, res) {
